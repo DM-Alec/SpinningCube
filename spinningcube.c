@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
+
 float a, b, c, x, xp, y, yp, z, zz;
 float cubewidth = 10;
 int width = 160
@@ -12,6 +13,7 @@ int backASCIIcode = ' ';
 int distfromCam = 60;
 float incrementSpeed = 0.6;
 float K1 = 40;
+int idx;
 
 float calculateX (int i, int j, int k) {
     return j * sin(a) * sin(b) * cos(c) - k * cos(a) * sin(b) * cos (c) + 
@@ -50,6 +52,8 @@ int main () {
     while(1){
             memset(buffer, backASCIIcode, width * height);
             memset(zbuffer, 0, width * height * 4);
+            cubeWidth = 20;
+            horizontalOffset = -2 * cubeWidth;
             for(float cubeX = - cubewidth; cubeX < cubewidth; cubeX += incrementSpeed) {
                     for(float cubeY = - cubewidth; cubeY < cubewidth; cubeY += incrementSpeed) {
                             
